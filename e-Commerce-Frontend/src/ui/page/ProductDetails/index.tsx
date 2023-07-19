@@ -17,8 +17,6 @@ import {
 import LoadingSpinner from "../../component/LoadingSpinner";
 import { getProductDetail } from "../../../resource/GetProductResource";
 import Row from "react-bootstrap/Row";
-import { putShoppingCartItem } from "../../../resource/ShoppingCartResource";
-import thanks from "../ThankyouPage/Thanks.png";
 import Footer from "../../component/Footer";
 
 export default function ProductDetails() {
@@ -30,11 +28,6 @@ export default function ProductDetails() {
 
   const [show, setShow] = useState(false);
 
-  const onApiPutCartItem = (isSuccess: boolean) => {
-    if (isSuccess) {
-      setShow(true);
-    }
-  };
 
   const setQuantityPlusOne = (): void => {
     if (product && quantity < product.stock) setQuantity(quantity + 1);
@@ -81,11 +74,7 @@ export default function ProductDetails() {
                   <Button
                     className={"add-to-cart-button"}
                     onClick={() => {
-                      putShoppingCartItem(
-                        product.product_id,
-                        quantity,
-                        onApiPutCartItem
-                      );
+                     
                     }}
                   >
                     Add to Cart
