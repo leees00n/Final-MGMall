@@ -25,15 +25,40 @@ inputForm.addEventListener('submit', function(event) {
   })
   .then(response => response.json())
   .then(data => {
-    const response = data.message_response;
-    console.log(response);
-    message = document.createElement('div');
-    message.classList.add('chatbot-message','chatbot');
-    message.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${response}</p>`;
-    conversation.appendChild(message);
-    message.scrollIntoView({behavior: "smooth"});
+    console.log(data);
+    console.log(Object.keys(data).length);
+    if(Object.keys(data).length==2){
+        const response = data.message_response1;
+        console.log(response);
+        message = document.createElement('div');
+        message.classList.add('chatbot-message','chatbot');
+        message.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${response}</p>`;
+        conversation.appendChild(message);
+        message.scrollIntoView({behavior: "smooth"});
+      
+        const response2 = data.message_response2;
+        console.log(response2);
+        message = document.createElement('div');
+        message.classList.add('chatbot-message','chatbot');
+        message.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${response2}</p>`;
+        conversation.appendChild(message);
+        message.scrollIntoView({behavior: "smooth"});
+    }
+        
+    else{
+        const response = data.message_response1;
+        console.log(response);
+        message = document.createElement('div');
+        message.classList.add('chatbot-message','chatbot');
+        message.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${response}</p>`;
+        conversation.appendChild(message);
+        message.scrollIntoView({behavior: "smooth"});
+    }
+    
   })
   .catch(error => {
     console.error(error);
   })
+    
+  inputField.value='';
 });
