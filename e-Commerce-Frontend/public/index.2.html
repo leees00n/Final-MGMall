@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/megazone.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Happy mega shopping" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/hygge.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <title>Mega Mall</title>
+  <style>
+    .container {
+      display: flex;
+      align-items: center;
+    }
+
+    .ivs-player {
+      width: 70%; /* IVS 영상의 너비 */
+    }
+
+    .chatbot-image {
+      width: 100px; /* 챗봇 이미지의 너비 */
+      position: absolute;
+      top: 10px; /* 원하는 위치로 조정 */
+      left: 20px; /* 원하는 위치로 조정 */
+    }
+  </style>
+</head>
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div class="container">
+    <div class="ivs-player">
+      <!-- IVS 영상 플레이어 코드 -->
+    </div>
+    <img class="chatbot-image" src="chatbot.png" alt="chatbot" />
+  </div>
+
+  <script src="https://player.live-video.net/1.19.0/amazon-ivs-player.min.js"></script>
+</body>
+</html>
