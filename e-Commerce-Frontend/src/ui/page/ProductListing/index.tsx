@@ -9,7 +9,7 @@ import { ProductListData } from "../../../data/ProductData";
 import MockData from "./response2.json";
 import BasicNavbar from "../../component/NavbarTop";
 import ProductDetails from "../ProductDetails";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   getMockProductResource,
   getProductResource,
@@ -38,6 +38,8 @@ export default function ProductListing() {
     ProductListData[] | undefined
   >(undefined);
 
+  const navigate = useNavigate();
+
   const sortProductLowToHigh = () => {
     setProductListData((prev) => {
       if (!prev) return prev;
@@ -51,6 +53,10 @@ export default function ProductListing() {
       return [...prev].sort((a, b) => b.price - a.price);
     });
   };
+
+  function goSpecialPricePage() {
+    navigate("/special")
+  }
 
   useEffect(() => {
     if (productListData === undefined) {
@@ -149,6 +155,7 @@ export default function ProductListing() {
                     alignItems: "center",
                     justifyContent: "center",
                   }}
+                  onClick={goSpecialPricePage}
                 >
                   <p
                     style={{

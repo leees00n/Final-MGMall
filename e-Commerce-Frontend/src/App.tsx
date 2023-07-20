@@ -10,6 +10,11 @@ import LoadingSpinner from "./ui/component/LoadingSpinner";
 import ShoppingCart from "./ui/page/ShoppingCart";
 import TransactionPage from "./ui/page/TranscationPage";
 import ThankYouPage from "./ui/page/ThankyouPage";
+import Order from './ui/page/SpecialPrice/Order';
+import OrderHistory from './ui/page/SpecialPrice/OrderHistory';
+import SpecialPricePage from './ui/page/SpecialPrice/SpecialsComponent';
+
+<style media="" data-href="https://static.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=20230706003"></style>
 
 function App() {
   const [isInitialized, setIsInitialized] = useState<boolean>(false);
@@ -36,6 +41,9 @@ function App() {
               />
               <Route path="/thankyou" element={<ThankYouPage />} />
               <Route path="/404" element={<PageNotFound />} />
+              <Route path="/special" element={<SpecialPricePage />} />
+              <Route path="/order/:productNo" element={<Order />} />
+              <Route path="/order/history" element={<OrderHistory />} />
             </Routes>
           </HashRouter>
         </div>
