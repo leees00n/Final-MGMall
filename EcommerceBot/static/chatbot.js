@@ -13,7 +13,7 @@ inputForm.addEventListener('submit', function(event) {
 
   let message = document.createElement('div');
   message.classList.add('chatbot-message', 'user-message');
-  message.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${input}</p>`;
+  message.innerHTML = `<p class="chatbot-text" id="text-user" sentTime="${currentTime}">${input}</p>`;
   conversation.appendChild(message);
 
   fetch('/chatbot', {
@@ -32,15 +32,16 @@ inputForm.addEventListener('submit', function(event) {
         console.log(response);
         message = document.createElement('div');
         message.classList.add('chatbot-message','chatbot');
-        message.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${response}</p>`;
+        
+        message.innerHTML = '<img src="../static/img/chatbot.png" alt="chatbot_icon" id="chatbot_icon" >'+`<p class="chatbot-text" id="text-chatbot" sentTime="${currentTime}">${response}</p>`;        
         conversation.appendChild(message);
         message.scrollIntoView({behavior: "smooth"});
       
         const response2 = data.message_response2;
         console.log(response2);
         message = document.createElement('div');
-        message.classList.add('chatbot-message','chatbot');
-        message.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${response2}</p>`;
+        message.classList.add('chatbot-message','chatbot', 'second-message');
+        message.innerHTML = `<p class="chatbot-text" id="text-chatbot" sentTime="${currentTime}">${response2}</p>`;
         conversation.appendChild(message);
         message.scrollIntoView({behavior: "smooth"});
     }
@@ -50,7 +51,7 @@ inputForm.addEventListener('submit', function(event) {
         console.log(response);
         message = document.createElement('div');
         message.classList.add('chatbot-message','chatbot');
-        message.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${response}</p>`;
+        message.innerHTML = '<img src="../static/img/chatbot.png" alt="chatbot_icon" id="chatbot_icon" >'+`<p class="chatbot-text" id="text-chatbot" sentTime="${currentTime}">${response}</p>`;
         conversation.appendChild(message);
         message.scrollIntoView({behavior: "smooth"});
     }
