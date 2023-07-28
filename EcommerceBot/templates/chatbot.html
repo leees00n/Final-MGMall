@@ -4,32 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot</title>
+    <title>Mega Mall</title>
     <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline+Text:wght@300&family=Lugrasimo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Lugrasimo&display=swap" rel="stylesheet">
+    <link rel="icon" href="../static/img/megazone.png">
 </head>
 <body>
     <div class="chatbot-container">
         <div id="header">
-            <h1>Chatbot</h1>
+            <h1>MegaBot</h1>
         </div>
         <div id="chatbot">
             <div id="conversation">
-              <div class="chatbot-message">
-                <p class="chatbot-text">안녕하세요!! EcommerceBot 입니다. 도움이 필요하시면 저를 불러주세요~~</p>
+              <div class="chatbot-message chatbot">
+                <img src="../static/img/chatbot.png" alt="chatbot_icon" id="chatbot_icon" >
+                <p class="chatbot-text" id="text-chatbot" sentTime="${currentTime}">안녕하세요. 메가몰 고객센터 메가봇입니다.</p>
+              </div>
+              <div class="chatbot-message chatbot second-message">
+                <p class="chatbot-text" id="text-chatbot" sentTime="${currentTime}">도움이 필요하시면 다음과 같이 질문해주세요.<br> 1. 구매목록 <br> 2. 특가할인 <br> 3. 추천상품 <br> 4. 상담원 연결</p>
               </div>
             </div>
             <form id="input-form" action="/chatbot" method="post">
               <message-container>
                 <input id="input-field" name="message_data" type="text" placeholder="입력해주세요">
                 <button id="submit-button" type="submit">
-                  <!-- <img class="send-icon" src="send-message.png" alt=""> -->
                     전송
                 </button>
               </message-container>
             </form>
         </div>
     </div>
-    
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="{{url_for('static', filename='chatbot.js')}}"></script>
 </body>
